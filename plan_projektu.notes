@@ -63,14 +63,14 @@ Interfejs użytkownika lub graficzny będą miały najmniejszy wpływ na ocenę.
 Należy utworzyć :
 
 
-1.) klasę danie charakteryzującą się 
+1.) klasę potrawa charakteryzującą się 
 
    -> wartości:
       [ ] nazwa - string 
       [ ] czas przygotowania - int
       [ ] temperatura przygotowania - int
       [ ] dostępna ilość - int  
-      [ ]  stan = int ( nowa klasa)
+      [ ] stan = int (nowa klasa)
 
 2.) klasa stan
 
@@ -79,33 +79,34 @@ Należy utworzyć :
       [ ] surowa - int
       [ ] przygotowana - int
 
-3.) klasę urzytkownik 
+3.) klasę uzytkownik 
 
    -> wartości:
-      [ ] imię - string 
-      [ ] włączenie - bool
+      [ ] imię - string
 
    -> działania:
       [ ] Włacz (zmiana obiektu mikrofala)
-      [ ] Wybierz_danie 
+      [ ] Wybierz_potrawe
       [ ] Ustaw_czas  (zmiana obiektu mikrofala)
       [ ] Ustaw_temerature (zmiana obiektu mikrofala)
-      [ ] Wyrzuc_danie if spalona (zmiana obiektu potrawa)
-      [ ] Jeszcze_raz if surowa (zmiana obiektu potrawa )
+      [ ] Wyrzuc_potrawe if spalona (zmiana obiektu potrawa)
+      [ ] Jeszcze_raz if surowa (zmiana obiektu potrawa)
       [ ] Zjedz if przygotowana (zmiana obiektu potrawa)
-      [ ] Kolejne_danie (uruchomienie pętli jeszcze raz )
+      [ ] Kolejne_potrawe (uruchomienie pętli jeszcze raz)
+      [ ] Sprwadz_mikrofala (sprawdza czy mikrofala jest włączona)
+      [ ] Sorawdz_potrawa (sprawdza stan 'ugotowania' potrawy)
 
 4.) klasa mikrofalowa
 
    -> wartości:
-      [ ] temeratura - string 
+      [ ] temperatura - int 
       [ ] czas działania - int
       [ ] działa - bool
       [ ] jaka_potrawa - obiekt  
 
    -> działania:
       [ ] Stop (zmiana obiektu mikrofala)
-      [ ] Gotowanie ( parametry temperatura, czas działania, jaka_potrawa) (zmiana obiektu potrawa)
+      [ ] Gotowanie (parametry temperatura, czas działania, jaka_potrawa) (zmiana obiektu potrawa)
 
 -> umieszczanie na gicie poszczególnych części projektu 
 
@@ -117,7 +118,7 @@ Interfejs :
 - Jakieś przywitanie - kto robił i wg 
 - Lista produktów dostępnych (może zmiana ich ilości) -> zapis do pliku (?) 
 - Wybór potrawy (uwaga na raz tylko 1 sztuka)
-- Wyświetlona iformacja o potrawie (informacje obiektu z klasy potrawa)
+- Wyświetlona informacja o potrawie (informacje obiektu z klasy potrawa)
 - Ustawienie czasu i temperatury (Odczenianie ustawionej ilości czasu)
 - Informacja Wyświetlona w formie komunikatu o stanie potrawy 
 - możlowość wykonania następnego działania związanego ze stanem potrawy 
