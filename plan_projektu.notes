@@ -1,0 +1,124 @@
+Przygotowanie do zajęć:
+Każdy członek grupy musi skutecznie zapisać się na kurs w systemie moodle.
+Na każde zajęcia (czyli DO terminu kolejnych zajęć) należy przygotować odpowiednie opracowanie pisemne i umieścić je w systemie moodle.
+Na kolejnej sesji należy przedstawić skorygowany dokument dotyczący zakresu sesji poprzedniej oraz skomentować sposób wykonania poprawek.
+Do terminu przedostatnich zajęć, należy umieścić w systemie moodle prezentację oraz końcową wersję projektu.
+
+Zasady oceniania:
+Ocena z projektu będzie wystawiona po zakończeniu ostatniego etapu na podstawie kompletnej dokumentacji projektu.
+Ocena końcowa to średnia ocena z ocen cząstkowych: za wynik projektu, prezentację oraz pracę w grupie.
+Aby zaliczyć przedmiot, każda ocena cząstkowa musi być pozytywna.
+Ocena za każde zadanie (praca w grupie) jest taka sama dla każdego członka grupy.
+Ocena za dany etap pracy, obejmuje również etapy poprzednie.
+
+==Projekt uważa się za zakończony jeżeli== 
+
+sporządzono wstępny opis wymagań systemu i oddano go w terminie,
+sporządzono harmonogram prac i oddano go w terminie,
+zostały przesłane wszystkie raporty,
+została stworzona i przedstawiona prezentacja systemu,
+została stworzona dokumentacja techniczna systemu.
+Wymagania na zaliczenie
+
+Jeżeli powyższe warunki zostały spełnione, to zrealizowany projekt (system) może być poddany ocenie.
+
+Przy ocenianiu systemu brane są pod uwagę:
+terminowość realizacji poszczególnych zadań zgodnie z przyjętym harmonogramem prac,
+jakość stworzonego oprogramowania (systemu),
+jakość stworzonej dokumentacji,
+pomysłowość w rozwiązywania problemów pojawiających się podczas realizacji projektu,
+przyjazność oraz intuicyjnośćdokumentacji,
+przejrzystość kodu (podział programu na moduły, komentarze w kodzie, opisy interfejsu, funkcji i procedur w kodzie)
+*UWAGA* Jeżeli dokumentacja zostanie umieszczona w złym miejscu w systemie moodle (nieodpowiedni etap, zła grupa) 
+może to uniemożliwić późniejsze odnalezienie pracy, a tym samym ocena za etap z brakiem dokumentacji lub źle przesłaną dokumentacją to jest niedostateczna.
+
+*UWAGA* Proszę nie wysyłać dokumentacji drogą mailową. Ze względu na ograniczoną wielkość skrzynki pocztowej, wiadomości z załącznikami są kasowane automatycznie.
+
+Dokumentacja kodu:
+„Jeżeli dokumentacja nie powstaje równocześnie z kodem, to nie powstanie nigdy.”
+
+== Program Kuchenka mikrofalowa == 
+
+ Program ma symulować działanie kuchenki mikrofalowej. 
+ Kuchenka mikrofalowa ma umożliwiać
+ [ ] „gotowanie” potraw 
+    -> po uprzednim ustawieniu temperatury [ ]
+    -> oraz czasu działania urządzenia [ ] 
+ [ ] możliwa sytuacja w której dana potrawa „spali się” (czas „gotowania” nie odpowiada rodzajowi „gotowanego” produktu)
+
+Kryteria ocen:
+
+[ ] obiektowość programu (umiejętność wykorzystania obiektowości języka C++ do rozwiązania 
+danego problemu, czyli np. odpowiednie zdefiniowanie klas, odpowiednie przeciążenie operatorów itp.);
+[ ] użycie dziedziczenia;
+[ ] użycie polimorfizmu (mile widziane);
+[ ] przejrzystość i czytelność kodu (komentarze, podział kodu na pliki);
+[ ] prezentację programu.
+Nie w każdym programie da się umieścić dziedziczenie, polimorfizm na raz, jednak każdy z tych elementów będzie podwyższał ostateczną ocenę. 
+Proszę raczej nawet przesadzać z tymi elementami aby wykazać się ich znajomością (nawet jeśli wydawać się będą wciśnięte do programu nieco na siłę).
+Interfejs użytkownika lub graficzny będą miały najmniejszy wpływ na ocenę.
+
+==Pomysły==
+
+Należy utworzyć :
+
+
+1.) klasę danie charakteryzującą się 
+
+   -> wartości:
+      [ ] nazwa - string 
+      [ ] czas przygotowania - int
+      [ ] temperatura przygotowania - int
+      [ ] dostępna ilość - int  
+      [ ]  stan = int ( nowa klasa)
+
+2.) klasa stan
+
+   -> wartości:
+      [ ] spalona - int
+      [ ] surowa - int
+      [ ] przygotowana - int
+
+3.) klasę urzytkownik 
+
+   -> wartości:
+      [ ] imię - string 
+      [ ] włączenie - bool
+
+   -> działania:
+      [ ] Włacz (zmiana obiektu mikrofala)
+      [ ] Wybierz_danie 
+      [ ] Ustaw_czas  (zmiana obiektu mikrofala)
+      [ ] Ustaw_temerature (zmiana obiektu mikrofala)
+      [ ] Wyrzuc_danie if spalona (zmiana obiektu potrawa)
+      [ ] Jeszcze_raz if surowa (zmiana obiektu potrawa )
+      [ ] Zjedz if przygotowana (zmiana obiektu potrawa)
+      [ ] Kolejne_danie (uruchomienie pętli jeszcze raz )
+
+4.) klasa mikrofalowa
+
+   -> wartości:
+      [ ] temeratura - string 
+      [ ] czas działania - int
+      [ ] działa - bool
+      [ ] jaka_potrawa - obiekt  
+
+   -> działania:
+      [ ] Stop (zmiana obiektu mikrofala)
+      [ ] Gotowanie ( parametry temperatura, czas działania, jaka_potrawa) (zmiana obiektu potrawa)
+
+-> umieszczanie na gicie poszczególnych części projektu 
+
+-> Doxygen i tworzenie domumentacji 
+   https://www.doxygen.nl/index.html
+
+Interfejs : 
+
+- Jakieś przywitanie - kto robił i wg 
+- Lista produktów dostępnych (może zmiana ich ilości) -> zapis do pliku (?) 
+- Wybór potrawy (uwaga na raz tylko 1 sztuka)
+- Wyświetlona iformacja o potrawie (informacje obiektu z klasy potrawa)
+- Ustawienie czasu i temperatury (Odczenianie ustawionej ilości czasu)
+- Informacja Wyświetlona w formie komunikatu o stanie potrawy 
+- możlowość wykonania następnego działania związanego ze stanem potrawy 
+- możlowość ugotowania kolejnej potrawy (wracanie do listy produktów + możliwość wyjścia)
