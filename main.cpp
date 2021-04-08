@@ -7,10 +7,12 @@ using namespace std;
 
 int main()
 {
-    Mikrofala *mikrofala = new Mikrofala;
-    Potrawa *spaghetti = new Potrawa;
+    Mikrofala mikrofala;
+    Potrawa spaghetti;
 
-    spaghetti->UstawPotrawe(0,"Spaghetti",15,40,1);
+    spaghetti.UstawPotrawe(0,"Spaghetti",15,40,1);
+    /*cout << "ID: " << spaghetti.getId();
+    cout << "Nazwa: " << spaghetti.getNazwa();*/ //Funkcje testowe
 
     return(0);
 }
