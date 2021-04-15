@@ -1,5 +1,6 @@
-#ifndef MYHEADER_H
-#define MYHEADER_H
+#ifndef POTRAWA_H
+#define POTRAWA_H
+#include "mikrofala.h"
 #include <iostream>
 #include <vector>
 #include <string>
@@ -28,21 +29,5 @@ public:
     void Zjedz(); // To samo co Wyrzuc_potrawe?
 };
 
-class Mikrofala
-{
-public:
-    int temp_mikro;
-    int czas_dzialania;
-    bool czy_dziala;
-    Potrawa jaka_potrawa; // do ogarniêcia
 
-    void Stop();
-    void Wybierz_potrawe();
-    void Ustaw_czas(int aCzas);
-    void Ustaw_temp(int aTemp);
-    void Gotowanie();
-    void Jeszcze_raz();
-    void Sprawdz_mikrofala();
-};
-
-#endif //MYHEADER_H
+#endif //POTRAWA_H

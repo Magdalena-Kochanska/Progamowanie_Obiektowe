@@ -1,4 +1,4 @@
-#include "header.h"
+#include "potrawa.h"
 
 //Potrawa
 
@@ -31,14 +31,3 @@ int Potrawa::getTemp()
     return temp_przyg;
 }
 
-//Mikrofala
-
-void Mikrofala::Ustaw_temp(int aTemp)
-{
-    temp_mikro = aTemp;
-};
-
-void Mikrofala::Ustaw_czas(int aCzas)
-{
-    czas_dzialania = aCzas;
-}

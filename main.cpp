@@ -1,7 +1,9 @@
 #include <iostream>
 #include <vector>
-#include "header.h"
-#include "funkcje.cpp"
+#include "mikrofala.h"
+#include "potrawa.h"
+#include "mikrofala.cpp"
+#include "potrawa.cpp"
 
 using namespace std;
 
