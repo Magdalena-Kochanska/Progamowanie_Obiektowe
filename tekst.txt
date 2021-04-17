@@ -1,17 +1,17 @@
 0;Spagetti;15;40;2;
 1;Pizza;5;60;1;
-2;Schabowe;5;200;3
-3;Ryz;6;100;3
-4;Mrozone pierogi;15;150;3
-5;Blyskawiczne brownie;5;180;1
-6;Zapiekanka mrozona;10;130;3
-7;Paluszki rybne;10;120;2
-8;Bigos;6;140;1
-9;Lazania;12;160;2
-10;Makaron ze szpinakiem;15;120;1
-11;Rosol;6;140;1
-12;Zupa krem;8;120;1
-13;Lecho;8;150;1
-14;Losos;12;120;1
-15;Kluski Slaskie;5;140;2
-16;Mielone;4;160;4
+2;Schabowe;5;200;3;
+3;Ryz;6;100;3;
+4;Mrozone pierogi;15;150;3;
+5;Blyskawiczne brownie;5;180;1;
+6;Zapiekanka mrozona;10;130;3;
+7;Paluszki rybne;10;120;2;
+8;Bigos;6;140;1;
+9;Lazania;12;160;2;
+10;Makaron ze szpinakiem;15;120;1;
+11;Rosol;6;140;1;
+12;Zupa krem;8;120;1;
+13;Lecho;8;150;1;
+14;Losos;12;120;1;
+15;Kluski Slaskie;5;140;2;
+16;Mielone;4;160;4;

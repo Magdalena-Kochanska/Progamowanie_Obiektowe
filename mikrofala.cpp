@@ -11,3 +11,8 @@ void Mikrofala::Ustaw_czas(int aCzas)
 {
     czas_dzialania = aCzas;
 }
+
+Potrawa Mikrofala::Wybierz_potrawe(std::vector<Potrawa> aMenu, int aIndeks)
+{
+    return(aMenu[aIndeks]);
+}

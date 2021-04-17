@@ -2,17 +2,35 @@
 #include <vector>
 #include "mikrofala.h"
 #include "potrawa.h"
-#include "mikrofala.cpp"
-#include "potrawa.cpp"
+#include "main.h"
+
+#include <string>
+#include <conio.h>
+#include <fstream>
 
 using namespace std;
 
 int main()
 {
     Mikrofala mikrofala;
-    Potrawa spaghetti;
+    vector <Potrawa> menu;
+    Potrawa JakasPotrawa;
 
-    spaghetti.UstawPotrawe(0,"Spaghetti",15,40,1);
+    Czytanie_z_pliku(menu);
+
+    //spaghetti.UstawPotrawe(0,"Spaghetti",15,40,1);
+    JakasPotrawa = mikrofala.Wybierz_potrawe(menu, 0);
+
+    Wyswietl_Menu(menu);
+
+    cout<<endl;
+
+    JakasPotrawa.Sprawdz_potrawe();
+
+    Wyrzuc_Potrawe(menu, 0);
+    Wyrzuc_Potrawe(menu, 0);
+    Wyswietl_Menu(menu);
+
     /*cout << "ID: " << spaghetti.getId();
     cout << "Nazwa: " << spaghetti.getNazwa();*/ //Funkcje testowe
 

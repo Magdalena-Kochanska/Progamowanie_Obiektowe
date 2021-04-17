@@ -1,51 +1,14 @@
 #include <iostream>
-#include <vector> 
+#include <vector>
 #include <vector>
 #include <string>
 #include <conio.h>
 #include <fstream>
+
+#include "main.h"
+#include "potrawa.h"
+
 using namespace std;
-class Potrawa
-{
-    private:
-    int indeks;
-    string nazwa;
-    int czas_przyg;
-    int temp_przyg;
-    //enum Stan{surowa, przygotowana, spalona};
-    public:
-    int ilosc;
-    void UstawPotrawe(int aIndeks, string aNazwa, int aCzas, int aTemp, int aIlosc)
-    {
-        this->indeks = aIndeks;
-        this->nazwa = aNazwa;
-        this->czas_przyg = aCzas;
-        this->temp_przyg = aTemp;
-        this->ilosc = aIlosc;
-    }
-    int getId()
-    {
-        return indeks;   
-        return indeks;
-    }
-
-    string getNazwa()
-    {
-        return nazwa;
-    }
-    int getCzas()
-    {
-        return czas_przyg;
-    }
-    int getTemp()
-    {
-        return temp_przyg;
-    }
-
-
-    friend void Czytanie_z_pliku(vector <Potrawa> &menu);
-
-};
 
 void Czytanie_z_pliku(vector <Potrawa> &menu)
 {
@@ -63,9 +26,9 @@ void Czytanie_z_pliku(vector <Potrawa> &menu)
             int numer =0;
             string wycinek;
             Potrawa nowa;
-           int numer_id;
-           string nazwa_z_pliku;
-           int czas;       //definiuje zmienne poza switch
+            int numer_id;
+            string nazwa_z_pliku;
+            int czas;       //definiuje zmienne poza switch
             int temp;
             int ilosc;
 
@@ -73,14 +36,14 @@ void Czytanie_z_pliku(vector <Potrawa> &menu)
                        //dzieli  moj string na miejsze stringi
                                                                     //dzieli  moj string na miejsze stringi
             {
-                
+
                 //int numer_id;
                 //string nazwa;
                // int czas;       //definiuje zmienne poza switch
                 //int temp;
-                //int ilosc; 
+                //int ilosc;
                 numer ++;
-                wycinek = linia.substr(0, pozycja); //definiuje długość jednej zmiennej 
+                wycinek = linia.substr(0, pozycja); //definiuje długość jednej zmiennej
                 wycinek = linia.substr(0, pozycja); //definiuje długość jednej zmiennej
 
                     switch (numer)
@@ -113,39 +76,45 @@ void Czytanie_z_pliku(vector <Potrawa> &menu)
                                         ilosc
                                         ); // dodaje nowa potrawe do menu
                         menu.push_back(nowa);
-                        //cout<<nowa.ilosc; 
+                        //cout<<nowa.ilosc;
                         //cout<<nowa.ilosc;
                         //cout<<endl;
                         break;
 
-                     }   
-                linia.erase(0, pozycja + srednik.length()); // wymazuje linijke 
+                     }
+                linia.erase(0, pozycja + srednik.length()); // wymazuje linijke
             }
         }
         while(!plik.eof()); // warunek na koniec pliku
-        plik.close();  //zamknięcie pliku 
+        plik.close();  //zamknięcie pliku
         plik.close();  //zamknięcie pliku
 
-    }      
-    
+    }
+
 }
 
-void Wyswietl_Menu( vector <Potrawa> &menu)
+//Funkcja wyswietlająca listę potraw
+
+void Wyswietl_Menu(vector <Potrawa> &menu)
 {
+    cout<<"===========MENU============"<<endl;
     for(int i =0; i<menu.size() ; i++)
     {
-        cout<<"Numer w menu: "<<menu[i].getId()<<endl;
+        cout<<menu[i].getId()<<" - "<<menu[i].getNazwa()<<" x"<<menu[i].ilosc<<endl;
+        /*cout<<"Numer w menu: "<<menu[i].getId()<<endl;
         cout<<"Nazwa potrawy: " << menu[i].getNazwa()<<endl;
-        cout<<"Ilosc: "<<menu[i].ilosc<<endl;
+        cout<<"Ilosc: "<<menu[i].ilosc<<endl;*/
+    }
+    cout<<"==========================="<<endl;
+}
+
+//Funkcja zmniejszająca ilość potrawy i usuwająca cały obiekt jeśli ilość<=1
+
+void Wyrzuc_Potrawe(vector <Potrawa> &aMenu, int aIndeks)
+{
+    aMenu[aIndeks].ilosc--;
+    if(aMenu[aIndeks].ilosc<=0)
+    {
+        aMenu.erase(aMenu.begin()+aIndeks);
     }
 }
-main()
-{
-    vector <Potrawa> menu;
-    Czytanie_z_pliku(menu);
-    cout<<menu.size();
-    Wyswietl_Menu(menu);
-    //cout << menu.size();
-    return 0;
-
-} //na podstawie wyswietl menu musimy wybrac potrawe i jednoczesnie zmienic ilosc w tym pliku 
