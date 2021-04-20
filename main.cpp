@@ -10,29 +10,36 @@
 
 using namespace std;
 
+
 int main()
 {
     Mikrofala mikrofala;
     vector <Potrawa> menu;
     Potrawa JakasPotrawa;
+    bool isRunning = 1;
 
     Czytanie_z_pliku(menu);
+    do
+    {
+    Wyswietl_Menu(menu);
 
     //spaghetti.UstawPotrawe(0,"Spaghetti",15,40,1);
-    JakasPotrawa = mikrofala.Wybierz_potrawe(menu, 0);
+    mikrofala.Ustaw(Wybierz_Potrawe(menu));
 
-    Wyswietl_Menu(menu);
 
-    cout<<endl;
 
-    JakasPotrawa.Sprawdz_potrawe();
+    //cout<<endl;
 
-    Wyrzuc_Potrawe(menu, 0);
-    Wyrzuc_Potrawe(menu, 0);
-    Wyswietl_Menu(menu);
+    //JakasPotrawa.Sprawdz_potrawe();
+
+    //Wyrzuc_Potrawe(menu, 0);
+    //Wyrzuc_Potrawe(menu, 0);
+    //Wyswietl_Menu(menu);
 
     /*cout << "ID: " << spaghetti.getId();
     cout << "Nazwa: " << spaghetti.getNazwa();*/ //Funkcje testowe
+
+    }while(isRunning == 1);
 
     return(0);
 }

@@ -2,9 +2,9 @@
 
 //Potrawa
 
-using namespace std;
 
-//Funkcja nadaje domyœlne wartoœci przy utworzeniu obiektu
+
+//Konstruktor nadaje domyœlne wartoœci przy utworzeniu obiektu
 Potrawa::Potrawa()
 {
     indeks=0;
@@ -12,34 +12,34 @@ Potrawa::Potrawa()
     ilosc=0;
     czas_przyg=0;
     temp_przyg=0;
-    stan=surowa;
+    //stan=surowa; //Do usuniecia jesli probujemy dziedziczenie
 }
 
 //Funkcje pozwalaj¹ce pozyskaæ wartoœci prywatne z klasy
 
-string Potrawa::getNazwa()
+std::string Potrawa::getNazwa() const
 {
     return nazwa;
 }
 
-int Potrawa::getId()
+int Potrawa::getId() const
 {
     return indeks;
 }
 
-int Potrawa::getCzas()
+int Potrawa::getCzas() const
 {
     return czas_przyg;
 }
 
-int Potrawa::getTemp()
+int Potrawa::getTemp() const
 {
     return temp_przyg;
 }
 
 //Funkcja manualnie ustawiaj¹ca parametry potrawy
 
-void Potrawa::UstawPotrawe(int aIndeks, string aNazwa, int aCzas, int aTemp, int aIlosc)
+void Potrawa::UstawPotrawe(int aIndeks, std::string aNazwa, int aCzas, int aTemp, int aIlosc)
 {
         this->indeks = aIndeks;
         this->nazwa = aNazwa;
@@ -50,21 +50,21 @@ void Potrawa::UstawPotrawe(int aIndeks, string aNazwa, int aCzas, int aTemp, int
 
 //Funkcja pokazuj¹ca parametry potrawy
 
-void Potrawa::Sprawdz_potrawe()
+void Potrawa::Sprawdz_potrawe() const
 {
-        cout<<indeks<<" - "<<nazwa<<endl;
-        cout<<"==========================="<<endl;
-        cout<<"Numer w menu: "<<indeks<<endl;
-        cout<<"Nazwa potrawy: " <<nazwa<<endl;
-        cout<<"Ilosc: "<<ilosc<<endl;
-        cout<<"Czas przygotowania: "<<czas_przyg<<endl;
-        cout<<"Temperatura przygotowania: "<<temp_przyg<<endl;
-        cout<<"Stan: ";
-        if(stan==spalona){cout<<"Spalona";}
-        else if(stan==przygotowana){cout<<"Przygotowana";}
-        else{cout<<"Surowa";}
-        cout<<endl;
-        cout<<"==========================="<<endl;
+        std::cout<<indeks<<" - "<<nazwa<<std::endl;
+        std::cout<<"==========================="<<std::endl;
+        std::cout<<"Numer w menu: "<<indeks<<std::endl;
+        std::cout<<"Nazwa potrawy: " <<nazwa<<std::endl;
+        std::cout<<"Ilosc: "<<ilosc<<std::endl;
+        std::cout<<"Czas przygotowania: "<<czas_przyg<<std::endl;
+        std::cout<<"Temperatura przygotowania: "<<temp_przyg<<std::endl;
+        //std::cout<<"Stan: ";                                          //Do usuniecia jesli probujemy dziedziczenie
+        //if(stan==spalona){std::cout<<"Spalona";}
+        //else if(stan==przygotowana){std::cout<<"Przygotowana";}
+        //else{std::cout<<"Surowa";}
+        std::cout<<std::endl;
+        std::cout<<"==========================="<<std::endl;
 
 }
 
