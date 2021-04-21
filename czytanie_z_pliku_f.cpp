@@ -197,3 +197,16 @@ Potrawa Wybierz_Potrawe(vector <Potrawa> &aMenu) //wybrana
 
     return wybrana;
 }
+
+void Stop() //zamunanie programu
+{
+    char znak = '0'; 
+    std::cout<<"Czy chcesz zakonczyc gotowanie? T/N "<<std::endl;
+    std::cin>>znak; 
+    if (znak == 'T' || znak == 't')
+    {
+        exit(0);
+    }
+    else{
+
+    }
