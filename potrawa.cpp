@@ -4,7 +4,7 @@
 
 
 
-//Konstruktor nadaje domyślne wartości przy utworzeniu obiektu
+///Konstruktor Potrawa -  nadaje domyślne wartości przy utworzeniu obiektu
 Potrawa::Potrawa()
 {
     indeks=0;
@@ -12,11 +12,10 @@ Potrawa::Potrawa()
     ilosc=0;
     czas_przyg=0;
     temp_przyg=0;
-    //stan=surowa; //Do usuniecia jesli probujemy dziedziczenie
 }
 
 
-//Funkcje pozwalające pozyskać wartości prywatne z klasy
+///Funkcje zaczynajace sie od get - Funkcje pozwalające pozyskać wartości prywatne z klasy
 
 std::string Potrawa::getNazwa() const
 {
@@ -51,7 +50,7 @@ void Potrawa::UstawPotrawe(int aIndeks, std::string aNazwa, int aCzas, int aTemp
 
 //Funkcja pokazująca parametry potrawy
 
-void Potrawa::Sprawdz_potrawe() const
+void Potrawa::Sprawdz_potrawe() const ///funkcja sprawdz potrawe wyswietla potrawe aby porownac informacje z wybrana przez nas potrawe
 {
         std::cout<<indeks<<" - "<<nazwa<<std::endl;
         std::cout<<"==========================="<<std::endl;
@@ -65,7 +64,7 @@ void Potrawa::Sprawdz_potrawe() const
 
 }
 
-void GotowaPotrawa::Sprawdz_potrawe() const
+void GotowaPotrawa::Sprawdz_potrawe() const ///Sprawdz_potrawe - funkcja dziedziczona do gotowa potrawa
 {
         std::cout<<indeks<<" - "<<nazwa<<std::endl;
         std::cout<<"==========================="<<std::endl;
@@ -78,7 +77,7 @@ void GotowaPotrawa::Sprawdz_potrawe() const
 
 }
 
-void SpalonaPotrawa::Sprawdz_potrawe() const
+void SpalonaPotrawa::Sprawdz_potrawe() const ///Sprawdz_potrawe - funkcja dziedziczona do spalona potrawa
 {
         std::cout<<indeks<<" - "<<nazwa<<std::endl;
         std::cout<<"==========================="<<std::endl;
@@ -90,9 +89,3 @@ void SpalonaPotrawa::Sprawdz_potrawe() const
         std::cout<<"==========================="<<std::endl;
 
 }
-/*
-void Potrawa::SkopiujDane(Potrawa aPotrawaZrodlowa)
-{
-
-}
-*/
