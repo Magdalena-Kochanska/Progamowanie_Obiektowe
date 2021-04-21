@@ -4,7 +4,7 @@
 
 
 
-//Konstruktor nadaje domyœlne wartoœci przy utworzeniu obiektu
+//Konstruktor nadaje domyÅ›lne wartoÅ›ci przy utworzeniu obiektu
 Potrawa::Potrawa()
 {
     indeks=0;
@@ -15,7 +15,8 @@ Potrawa::Potrawa()
     //stan=surowa; //Do usuniecia jesli probujemy dziedziczenie
 }
 
-//Funkcje pozwalaj¹ce pozyskaæ wartoœci prywatne z klasy
+
+//Funkcje pozwalajÄ…ce pozyskaÄ‡ wartoÅ›ci prywatne z klasy
 
 std::string Potrawa::getNazwa() const
 {
@@ -37,7 +38,7 @@ int Potrawa::getTemp() const
     return temp_przyg;
 }
 
-//Funkcja manualnie ustawiaj¹ca parametry potrawy
+//Funkcja manualnie ustawiajÄ…ca parametry potrawy
 
 void Potrawa::UstawPotrawe(int aIndeks, std::string aNazwa, int aCzas, int aTemp, int aIlosc)
 {
@@ -48,7 +49,7 @@ void Potrawa::UstawPotrawe(int aIndeks, std::string aNazwa, int aCzas, int aTemp
         this->ilosc = aIlosc;
 }
 
-//Funkcja pokazuj¹ca parametry potrawy
+//Funkcja pokazujÄ…ca parametry potrawy
 
 void Potrawa::Sprawdz_potrawe() const
 {
@@ -59,13 +60,39 @@ void Potrawa::Sprawdz_potrawe() const
         std::cout<<"Ilosc: "<<ilosc<<std::endl;
         std::cout<<"Czas przygotowania: "<<czas_przyg<<std::endl;
         std::cout<<"Temperatura przygotowania: "<<temp_przyg<<std::endl;
-        //std::cout<<"Stan: ";                                          //Do usuniecia jesli probujemy dziedziczenie
-        //if(stan==spalona){std::cout<<"Spalona";}
-        //else if(stan==przygotowana){std::cout<<"Przygotowana";}
-        //else{std::cout<<"Surowa";}
         std::cout<<std::endl;
         std::cout<<"==========================="<<std::endl;
 
 }
 
+void GotowaPotrawa::Sprawdz_potrawe() const
+{
+        std::cout<<indeks<<" - "<<nazwa<<std::endl;
+        std::cout<<"==========================="<<std::endl;
+        std::cout<<"Numer w menu: "<<indeks<<std::endl;
+        std::cout<<"Nazwa potrawy: " <<nazwa<<std::endl;
+        std::cout<<"Ilosc: "<<ilosc<<std::endl;
+        std::cout<<"Potrawa gotowa. Smacznego!"<<std::endl;
+        std::cout<<std::endl;
+        std::cout<<"==========================="<<std::endl;
 
+}
+
+void SpalonaPotrawa::Sprawdz_potrawe() const
+{
+        std::cout<<indeks<<" - "<<nazwa<<std::endl;
+        std::cout<<"==========================="<<std::endl;
+        std::cout<<"Numer w menu: "<<indeks<<std::endl;
+        std::cout<<"Nazwa potrawy: " <<nazwa<<std::endl;
+        std::cout<<"Ilosc: "<<ilosc<<std::endl;
+        std::cout<<"Potrawa spalona. O nie!"<<std::endl;
+        std::cout<<std::endl;
+        std::cout<<"==========================="<<std::endl;
+
+}
+/*
+void Potrawa::SkopiujDane(Potrawa aPotrawaZrodlowa)
+{
+
+}
+*/

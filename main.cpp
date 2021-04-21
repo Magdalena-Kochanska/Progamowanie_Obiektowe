@@ -14,17 +14,35 @@ using namespace std;
 int main()
 {
     Mikrofala mikrofala;
-    vector <Potrawa> menu;
-    Potrawa JakasPotrawa;
+    vector <Potrawa> surowePotrawy;
+    vector <GotowaPotrawa> przygotowanePotrawy;
+    vector <SpalonaPotrawa> spalonePotrawy;
+    SpalonaPotrawa JakasPotrawa;
+    GotowaPotrawa JakasPotrawa2;
     bool isRunning = 1;
 
-    Czytanie_z_pliku(menu);
+    //JakasPotrawa2.UstawPotrawe(1,"test",2,3,4);
+    //przygotowanePotrawy.push_back(JakasPotrawa2);
+    //JakasPotrawa.UstawPotrawe(1,"test",2,3,4);
+    //spalonePotrawy.push_back(JakasPotrawa);
+
+    Czytanie_z_pliku(surowePotrawy);
     do
     {
-    Wyswietl_Menu(menu);
+    Wyswietl_Menu(surowePotrawy);
 
-    //spaghetti.UstawPotrawe(0,"Spaghetti",15,40,1);
-    mikrofala.Ustaw(Wybierz_Potrawe(menu));
+
+
+    if (spalonePotrawy.empty()){cout<<"Brak spalonych potraw!"<<endl;}
+    else{Wyswietl_Spalone(spalonePotrawy);}
+
+    if (przygotowanePotrawy.empty()){cout<<"Brak przygotowanych potraw!"<<endl;}
+    else{Wyswietl_Gotowe(przygotowanePotrawy);}
+
+
+
+    mikrofala.Ustaw(Wybierz_Potrawe(surowePotrawy), spalonePotrawy, przygotowanePotrawy);
+    ProgramStop();
 
 
 
@@ -43,4 +61,3 @@ int main()
 
     return(0);
 }
-

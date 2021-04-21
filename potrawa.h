@@ -7,15 +7,15 @@
 #include <conio.h>
 #include <fstream>
 
-enum Stan_potrawy{surowa,przygotowana,spalona};
 
 class Potrawa
 {
-private:
+protected:
     int indeks;
     std::string nazwa;
     int czas_przyg;
     int temp_przyg;
+    //void SkopiujDane(Potrawa aPotrawaZrodlowa);
     //Stan_potrawy stan; //Do usuniecia jesli probujemy dziedziczenie
 
 public:
@@ -26,7 +26,7 @@ public:
     int getCzas() const;
     int getTemp() const;
     //void Wyrzuc_potrawe(); // Usuwa jedną potrawę z listy
-    void Sprawdz_potrawe() const; //Pokazuje potrawe
+    virtual void Sprawdz_potrawe() const; //Pokazuje potrawe
     //void Zjedz(); // To samo co Wyrzuc_potrawe?
     explicit Potrawa(); // Do wypełnienia domyślnymi wartościami
 
@@ -35,7 +35,14 @@ public:
 
 class GotowaPotrawa : public Potrawa
 {
-//Nie mozemy funkcji Zjedz, bo musielibysmy usunac potrawe z wektora, czego nie mozemy zrobic z wewnatrz klasy
+    public:
+    void Sprawdz_potrawe() const;
+};
+
+class SpalonaPotrawa : public Potrawa
+{
+    public:
+    void Sprawdz_potrawe() const;
 };
 
 #endif //POTRAWA_H

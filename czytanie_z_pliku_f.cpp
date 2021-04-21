@@ -12,19 +12,19 @@
 
 using namespace std;
 
-void OgraniczCin(int aWejscie, int ZabronUjemne = false) //Funkcja do sprawdzania poprawnosci danych wejscia,
+void OgraniczCin(int *aWejscie, int ZabronUjemne = false) //Funkcja do sprawdzania poprawnosci danych wejscia,
 {                                                       //zabrania wpisywania blednych lub ujemnych wartosci. UZYWAC TYLKO PO cin!
-        while(!std::cin || (aWejscie<0) && ZabronUjemne==1)      //Jesli ZabronUjemne = 1, funkcja potraktuje kazda wartosc <0 jako bledna
+        while(!std::cin || ((aWejscie<0) && ZabronUjemne==1))      //Jesli ZabronUjemne = 1, funkcja potraktuje kazda wartosc <0 jako bledna
         {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout<<"Niepoprawna wartosc. Sprobuj podac liczbe";
+            std::cout<<"Niepoprawna wartosc."<<endl<<" Sprobuj podac liczbe";
             if (ZabronUjemne==1)
             {
                 std::cout<<" wieksza lub rowna 0";
             }
             std::cout<<": ";
-            std::cin>>aWejscie;     //Powtarza tego samego cin'a, ktorego mial
+            std::cin>>*aWejscie;     //Powtarza tego samego cin'a, ktorego mial
         }
 }
 
@@ -165,17 +165,9 @@ Potrawa Wybierz_Potrawe(vector <Potrawa> &aMenu) //wybrana
     //cout<<menu.size();
     while (numer >= 0)
     {
-        cout<<" Prosze podaj numer dania z naszego menu: "<<endl;
+        cout<<"Prosze podaj numer dania z naszego menu: "<<endl;
         cin>>numer;
-        /*while(!std::cin || numer<0)
-            {
-                std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                std::cout<<"Niepoprawna wartosc. Sprobuj ponownie: ";
-                std::cin>>numer;
-            }
-        */
-        OgraniczCin(numer, 1);
+        OgraniczCin(&numer, 1);
         if (numer < aMenu.size() && numer >= 0 )
         {
             wybrana = aMenu[numer];
@@ -198,11 +190,11 @@ Potrawa Wybierz_Potrawe(vector <Potrawa> &aMenu) //wybrana
     return wybrana;
 }
 
-void Stop() //zamunanie programu
+void ProgramStop() //zamunanie programu
 {
-    char znak = '0'; 
+    char znak = '0';
     std::cout<<"Czy chcesz zakonczyc gotowanie? T/N "<<std::endl;
-    std::cin>>znak; 
+    std::cin>>znak;
     if (znak == 'T' || znak == 't')
     {
         exit(0);
@@ -210,3 +202,64 @@ void Stop() //zamunanie programu
     else{
 
     }
+}
+
+void Wyswietl_Spalone(vector <SpalonaPotrawa> &aMenu)
+{
+    cout<<"============= SPALONE ============="<<endl;
+    for(int i =0; i<aMenu.size() ; i++)
+    {
+        int dlugosc = 36; //dlugosc menu
+        int numer = 0;
+        if (aMenu[i].getId() >= 10 ) // warunek na liczby 2 cyfrowe
+        {
+            numer = 2;
+        }
+        else
+        {
+            numer = 1;
+        }
+        int koniec = 4 + numer + 4 + aMenu[i].getNazwa().size() + 3 ;
+        int liczba_spacji = dlugosc - koniec; //ile spacji potrzeba do zapelnienia
+        cout<<"|  "<<aMenu[i].getId()<<" - "<<aMenu[i].getNazwa()<<" x"<<aMenu[i].ilosc;
+        for (int i = 0; i < liczba_spacji; i++)
+        {
+            cout<<" ";
+        }
+        /*cout<<"Numer w menu: "<<aMenu[i].getId()<<endl;
+        cout<<"Nazwa potrawy: " << aMenu[i].getNazwa()<<endl;
+        cout<<"Ilosc: "<<aMenu[i].ilosc<<endl;*/
+        cout<<"|"<<endl;
+    }
+    cout<<"==================================="<<endl;
+}
+
+void Wyswietl_Gotowe(vector <GotowaPotrawa> &aMenu)
+{
+    cout<<"============= GOTOWE =============="<<endl;
+    for(int i =0; i<aMenu.size() ; i++)
+    {
+        int dlugosc = 36; //dlugosc menu
+        int numer = 0;
+        if (aMenu[i].getId() >= 10 ) // warunek na liczby 2 cyfrowe
+        {
+            numer = 2;
+        }
+        else
+        {
+            numer = 1;
+        }
+        int koniec = 4 + numer + 4 + aMenu[i].getNazwa().size() + 3 ;
+        int liczba_spacji = dlugosc - koniec; //ile spacji potrzeba do zapelnienia
+        cout<<"|  "<<aMenu[i].getId()<<" - "<<aMenu[i].getNazwa()<<" x"<<aMenu[i].ilosc;
+        for (int i = 0; i < liczba_spacji; i++)
+        {
+            cout<<" ";
+        }
+        /*cout<<"Numer w menu: "<<aMenu[i].getId()<<endl;
+        cout<<"Nazwa potrawy: " << aMenu[i].getNazwa()<<endl;
+        cout<<"Ilosc: "<<aMenu[i].ilosc<<endl;*/
+        cout<<"|"<<endl;
+    }
+    cout<<"==================================="<<endl;
+}
